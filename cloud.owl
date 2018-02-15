@@ -26,7 +26,7 @@
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasAvailabilityZone -->
 
     <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasAvailabilityZone">
-        <rdfs:subPropertyOf rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#hasResource"/>
+        <rdfs:subPropertyOf rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#hasLocation"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:range rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#AvailabilityZone"/>
     </owl:ObjectProperty>
@@ -82,6 +82,12 @@
     
 
 
+    <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasLocation"/>
+    
+
+
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasMAC -->
 
     <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasMAC">
@@ -114,7 +120,7 @@
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasRegion -->
 
     <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasRegion">
-        <rdfs:subPropertyOf rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#hasResource"/>
+        <rdfs:subPropertyOf rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#hasLocation"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#AvailabilityZone"/>
         <rdfs:range rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#Region"/>
@@ -182,14 +188,6 @@
     
 
 
-    <!-- https://semanticcloud.github.io/Ontology/cloud.owl#offersComponent -->
-
-    <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#offersComponent">
-        <rdfs:domain rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#Service"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#offersService -->
 
     <owl:ObjectProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#offersService">
@@ -217,23 +215,6 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#CPU"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasAvailableSize -->
-
-    <owl:DatatypeProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasAvailableSize">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#Memory"/>
-                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#StorageResource"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </owl:DatatypeProperty>
     
 
@@ -307,9 +288,9 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#Provider"/>
+                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#Actor"/>
+                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#Resource"/>
                     <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#Service"/>
-                    <rdf:Description rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#User"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -359,6 +340,16 @@
     
 
 
+    <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasMemorySize -->
+
+    <owl:DatatypeProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasMemorySize">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#Memory"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasMountPoint -->
 
     <owl:DatatypeProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasMountPoint">
@@ -391,6 +382,16 @@
     <owl:DatatypeProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasState">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://semanticcloud.github.io/Ontology/cloud.owl#hasStorageSize -->
+
+    <owl:DatatypeProperty rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#hasStorageSize">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://semanticcloud.github.io/Ontology/cloud.owl#StorageResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </owl:DatatypeProperty>
     
 
@@ -543,7 +544,9 @@ party, or some combination of them, and it may exist on or off premises.</rdfs:c
 
     <!-- https://semanticcloud.github.io/Ontology/cloud.owl#DeploymentModel -->
 
-    <owl:Class rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#DeploymentModel"/>
+    <owl:Class rdf:about="https://semanticcloud.github.io/Ontology/cloud.owl#DeploymentModel">
+        <rdfs:comment xml:lang="en">A cloud deployment model represents a specific type of cloud environment, primarily distinguished by ownership, size, and access.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -891,5 +894,5 @@ with, and uses service from Cloud Providers.</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
